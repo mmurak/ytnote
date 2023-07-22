@@ -216,8 +216,10 @@ function updateModel() {
     let dataDict = G.model["entry"];
     let tdArray = dataDict.map((v) => { return [ v["time"], v["description"] ] });
     tdArray.sort((first, second) => { 
-        if (first[0] < second[0]) return -1;
-        else if (first[0] > second[0]) return 1;
+        const n1 = Number(first[0]);
+        const n2 = Number(second[0]);
+        if (n1 < n2) return -1;
+        else if (n1 > n2) return 1;
         else return 0;
     });
     let aTable = document.createElement("table");
@@ -275,8 +277,10 @@ function saveJSON() {
     let dataDict = G.model["entry"];
     let tdArray = dataDict.map((v) => { return [ v["time"], v["description"] ] });
     tdArray.sort((first, second) => { 
-        if (first[0] < second[0]) return -1;
-        else if (first[0] > second[0]) return 1;
+        const n1 = Number(first[0]);
+        const n2 = Number(second[0]);
+        if (n1 < n2) return -1;
+        else if (n1 > n2) return 1;
         else return 0;
     });
     let ddic = []
