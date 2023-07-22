@@ -4,7 +4,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 10px 20px;
+  padding: 0 10px 0 0;
   background: #fff;
   box-sizing: border-box;
 }
@@ -67,8 +67,48 @@ textarea{
   box-sizing: border-box;
   width: 100%;
 }
-#rewindSec{
-  width: 3em;
+.left-position{
+  float: left;
+}
+.far-right{
+  display: flex;
+  justify-content: flex-end;
+}
+input[type="file"] {
+  display: none;
+}
+label{
+  display: inline-block;
+  font-family: "Arial";
+  padding: 7px 5px 0 5px;
+  margin: 0 5px 0 0;
+}
+.pcontrols{
+  font-size: 120%;
+  box-sizing: border-box;
+  border: 1px solid #68779a;
+  height: 2em;
+  cursor: pointer;
+}
+.pcontrols:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+}
+.inputColor{
+  background: #ccccff;
+}
+.outputColor{
+  background: #f8daaa;
+}
+.playColor{
+  background: #b1f282;
+}
+.rewindColor{
+  background: #f0b2f0;
+}
+.noteColor{
+  background: #a0d4f3;
+  width: 50%;
 }
 @keyframes modalopen {
   from {opacity: 0}

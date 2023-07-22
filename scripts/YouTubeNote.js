@@ -6,6 +6,7 @@ class GlobalManager {
         this.YTPlayer = null;
         this.seekPause = false; // It controls whether to pause or resume after a seek op.
         this.wholeArea = document.getElementById("wholeArea");
+        this.idArea = document.getElementById("idArea");
         this.dataArea = document.getElementById("dataArea");
         this.descDialog = document.getElementById("descDialog");
         this.descVideoID = document.getElementById("descVideoID");
@@ -19,7 +20,7 @@ class GlobalManager {
         this.inputIDButton = document.getElementById("inputIDButton");
         this.fileInputButton = document.getElementById("fileInputButton");
         this.playPauseButton = document.getElementById("playPauseButton");
-        this.rewindSec = document.getElementById("rewindSec");
+        this.rewindSec = 2.0;
 
         this.descDialog.addEventListener("keydown", (e) => {
             if (e.key == "Escape") {
@@ -84,9 +85,11 @@ function loadAPI() {
 
 // Setup player (This function would be called by YouTube iFrame API)
 function onYouTubeIframeAPIReady() {
+    const width = document.documentElement.clientWidth - 25;
+    const height = Math.round(width * 9 / 16);
     G.YTPlayer = new YT.Player('player', {
-        height: "300",
-        width: "530",
+        height: height,
+        width: width,
         controls: "1",
         events: {
             "onReady": onPlayerReady,
@@ -121,7 +124,7 @@ function loadVideoAndSeek(vid, sec) {
 }
 
 function rewind() {
-    const newTime = G.YTPlayer.getCurrentTime() - rewindSec.value;
+    const newTime = G.YTPlayer.getCurrentTime() - G.rewindSec;
     seekTo(newTime);
 }
 
@@ -154,6 +157,7 @@ function loadVideoButton() {
     }
     G.model["ID"] = vid;
     G.model["entry"] = [];
+    G.idArea.innerHTML = vid;
     updateModel();
     loadVideoAndSeek(vid, 0);
     enableControls();
@@ -265,6 +269,7 @@ function openJASON(input) {
     const reader = new FileReader();
     reader.onload = () => {
         G.model = JSON.parse(reader.result);
+        G.idArea.innerHTML = G.model["ID"];
          loadVideoAndSeek(G.model["ID"], 0);
         updateModel();
         enableControls();

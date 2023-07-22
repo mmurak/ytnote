@@ -35,15 +35,24 @@
         </div>
 
         <header id="topSection">
-            <input type="button" id="inputIDButton" value="Load YouTube video" onclick="loadVideoButton();" disabled /><br/>
-            <input type="file" id="fileInputButton" onchange="openJASON(this);" onclick="this.value=null;" disabled /><br/>
-            <div id="player"></div><br/>
-            <input type="button" class="pcontrols" value="➮💾 (S)" onclick="saveJSON();" disabled />
-            <input type="button" class="pcontrols" id="playPauseButton"  value="⏯️ (Q)" onclick="playPause();" disabled />
-            <input type="button" id="rewindButton" class="pcontrols" value="⏪ (E)" onclick="rewind();" disabled />
-            <input type="number" id="rewindSec" min="0.5" max="10.0" step="0.5" cols="2" value="2"/>
-            <label for="rewindButton">sec.</label>
-            <input type="button" class="pcontrols" value="🔖 (I)" onclick="insertDescButton();"/ disabled ><br/>
+            <div class="left-position">
+                <input type="button" id="inputIDButton"  class="pcontrols inputColor"value="YouTube ID" onclick="loadVideoButton();" disabled />
+                <span id="idArea"></span>
+            </div>
+            <div class="far-right">
+                <label for="fileInputButton"  class="pcontrols inputColor">
+                    <input type="file" id="fileInputButton" onchange="openJASON(this);" onclick="this.value=null;" disabled />Open BM file
+                </label>
+                <input type="button" class="pcontrols outputColor" value="Save BM file (S)" onclick="saveJSON();" disabled />
+            </div>
+            <div id="player" style="padding: 10px 0 0 0;"></div><br/>
+            <div class="left-position">
+                <input type="button" class="pcontrols playColor" id="playPauseButton"  value="Play/Pause (Q)" onclick="playPause();" disabled />
+                <input type="button" id="rewindButton" class="pcontrols rewindColor" value="<< 2sec. (E)" onclick="rewind();" disabled />
+            </div>
+            <div class="far-right">
+                <input type="button" class="pcontrols noteColor" value="Write note (I)" onclick="insertDescButton();"/ disabled ><br/>
+            </div>
         </header>
         <main>
             <div id="dataArea"/></div>
