@@ -85,8 +85,8 @@ function loadAPI() {
 // Setup player (This function would be called by YouTube iFrame API)
 function onYouTubeIframeAPIReady() {
     G.YTPlayer = new YT.Player('player', {
-        height: "360",
-        width: "640",
+        height: "300",
+        width: "530",
         controls: "1",
         events: {
             "onReady": onPlayerReady,

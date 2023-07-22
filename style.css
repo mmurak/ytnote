@@ -67,7 +67,9 @@ textarea{
   box-sizing: border-box;
   width: 100%;
 }
-
+#rewindSec{
+  width: 3em;
+}
 @keyframes modalopen {
   from {opacity: 0}
   to {opacity: 1}
