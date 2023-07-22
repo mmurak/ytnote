@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>YouTube Note-taker</title>
+    <link rel="shortcut icon" href="./KiwiBirdPink.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <style>
+    </style>
+  </head>
+    <body id="wholeArea">
+        <div class="modal" id="descDialog">
+            <div class="modal-content">
+                <table class="dialogTable" border="1">
+                <tr><td>Video ID: </td><td id="descVideoID"></td></tr>
+                <tr><td>Time: </td><td><input type="textfield"  class="descTime" id="descTime"/></td></tr>
+                <tr><td>Description: </td><td><textarea id="descField" rows="10"></textarea></td></tr>
+                </table>
+                <input type="button" id="cancel" value="Cancel" onclick="descCancelButton();"></input>&nbsp;
+                <input type="button" id="okButton" value="Register" onclick="descOkButton();"></input>
+            </div>
+        </div>
+
+        <div class="modal2" id="editDialog">
+            <div class="modal-content">
+                <table class="dialogTable" border="1">
+                <tr><td>Video ID: </td><td id="editVideoID"></td></tr>
+                <tr><td>Time: </td><td><input type="textfield"  class="editTime" id="editTime"/></td></tr>
+                <tr><td>Description: </td><td><textarea id="editField" rows="10"></textarea></td></tr>
+                </table>
+                <input type="button" id="cancel" value="Cancel" onclick="editCancelButton();"></input>&nbsp;
+                <input type="button" id="okButton" value="Register" onclick="editOkButton();"></input>
+            </div>
+        </div>
+
+        <header id="topSection">
+            <input type="button" id="inputIDButton" value="Load YouTube video" onclick="loadVideoButton();" disabled /><br/>
+            <input type="file" id="fileInputButton" onchange="openJASON(this);" onclick="this.value=null;" disabled /><br/>
+            <div id="player"></div><br/>
+            <input type="button" class="pcontrols" value="Store in a JSON file (S)" onclick="saveJSON();" disabled />
+            <input type="button" class="pcontrols" id="playPauseButton"  value="Play/Pause (Q)" onclick="playPause();" disabled />
+            <input type="button" id="rewindButton" class="pcontrols" value="Rewind (E)" onclick="rewind();" disabled />
+            <input type="number" id="rewindSec" min="0.5" max="10.0" step="0.5" value="2"/>
+            <label for="rewindButton">sec.</label>
+            <input type="button" class="pcontrols" value="Create a Bookmark (I)" onclick="insertDescButton();"/ disabled ><br/>
+        </header>
+        <main>
+            <div id="dataArea"/></div>
+        </main>
+
+        <script src="./scripts/YouTubeNote.js"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal2 {
+  display: none;
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #e0e0e0;
+  margin: 20% auto;
+  width: 60%;
+  padding: 2em;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+.descTime{
+  width: 5em;
+}
+.editTime{
+  width: 5em;
+}
+td{
+  vertical-align: top;
+}
+.dialogTable{
+  border: none;
+  width: 100%;
+}
+.bodyTable {
+  border: 1px solid #333;
+  border-spacing: 0;
+  width: 100%
+}
+a{
+  text-decoration: none;
+}
+textarea{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
