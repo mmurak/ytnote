@@ -214,6 +214,10 @@ function newLine2BR(str) {
     return str.replaceAll("\n", "<br/>");
 }
 
+function seconds2hhmmss(sec) {
+    return new Date(sec * 1000).toISOString().slice(11, 22);
+}
+
 function updateModel() {
     while(G.dataArea.firstChild) {
         G.dataArea.removeChild(G.dataArea.lastChild);
@@ -253,7 +257,7 @@ function updateModel() {
         aTD = document.createElement("td");
         aDIV = document.createElement("div");
         aDIV.style = "font-size: 70%";
-        aDIV.innerHTML = "[" + time + "]: ";
+        aDIV.innerHTML = "[" + seconds2hhmmss(time) + "]: ";
         aTD.appendChild(aDIV);
         aTR.appendChild(aTD);
         // anchor tag
