@@ -110,6 +110,9 @@ label{
   background: #a0d4f3;
   width: 95%;
 }
+#player{
+  width: 100%;
+}
 @keyframes modalopen {
   from {opacity: 0}
   to {opacity: 1}

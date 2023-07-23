@@ -85,7 +85,8 @@ function loadAPI() {
 
 // Setup player (This function would be called by YouTube iFrame API)
 function onYouTubeIframeAPIReady() {
-    const width = document.documentElement.clientWidth - 25;
+    let width = document.documentElement.clientWidth - 25;
+    width = (width > 640) ? 640 : width;
     const height = Math.round(width * 9 / 16);
     G.YTPlayer = new YT.Player('player', {
         height: height,
