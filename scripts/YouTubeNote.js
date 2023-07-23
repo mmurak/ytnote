@@ -196,7 +196,7 @@ function deleteButtonClicked(parm) {
     const sec = parm.target.id.substring(1);
     const idx = findEntryIndex(sec);
     if (idx < 0)  return;
-    if (confirm("Is it ok to delete this entry? (At " + sec + " sec.)")) {
+    if (confirm("Can I delete this entry? (At " + sec + " sec.)")) {
         G.model["entry"].splice(idx, 1);
         updateModel();
     }
@@ -210,6 +210,7 @@ function editButtonClicked(parm) {
 }
 
 function newLine2BR(str) {
+    str = str.replaceAll(" ", "&nbsp;");
     return str.replaceAll("\n", "<br/>");
 }
 
@@ -248,8 +249,15 @@ function updateModel() {
         editButton.onclick = editButtonClicked;
         aTD.appendChild(editButton);
         aTR.appendChild(aTD);
+        // time column
         aTD = document.createElement("td");
+        aDIV = document.createElement("div");
+        aDIV.style = "font-size: 70%";
+        aDIV.innerHTML = "[" + time + "]: ";
+        aTD.appendChild(aDIV);
+        aTR.appendChild(aTD);
         // anchor tag
+        aTD = document.createElement("td");
         let aTag = document.createElement("a");
         aTag.href = "javascript:seekTo(" + time + ");"
         aTag.innerHTML = newLine2BR(description) + "<br/>";
